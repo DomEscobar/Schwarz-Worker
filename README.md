@@ -12,12 +12,11 @@ Prompts for global (`~/.config/opencode/`) or local (`./.opencode/`). Use `npx s
 
 ## Quick Start
 
-| Scenario     | First step     
-                                      | Then                    |
-|-------------|-------------------------------------------------------|-------------------------|
-| **Greenfield** | `/szw-new-project`                                  | `/szw-phase 1`, 2, 3…   |
-| **Brownfield** | `/szw-map-codebase` then `/szw-new-project`          | Same phase loop         |
-| **Jira/sprint** | New project or milestone with ticket scope           | `/szw-phase N` per phase |
+| Scenario       | First step                                      | Then                    |
+|----------------|-------------------------------------------------|-------------------------|
+| **Greenfield** | `/szw-new-project`                              | `/szw-phase 1`, 2, 3…   |
+| **Brownfield** | `/szw-map-codebase` then `/szw-new-project`     | Same phase loop         |
+| **Jira/sprint**| New project or milestone with ticket scope      | `/szw-phase N` per phase |
 
 One phase in one go: `/szw-phase 1` runs plan → execute → verify for phase 1.
 
