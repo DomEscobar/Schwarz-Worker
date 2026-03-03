@@ -1,0 +1,36 @@
+{
+  "name": "schwarz-worker",
+  "version": "0.2.0",
+  "description": "KPI- and responsibility-aware spec-driven development system for OpenCode. Install szw- commands, workflows, and agents.",
+  "type": "commonjs",
+  "main": "bin/install.js",
+  "bin": {
+    "schwarz-worker": "bin/install.js"
+  },
+  "files": [
+    "bin",
+    "commands",
+    "workflows",
+    "agents",
+    "references",
+    "templates",
+    "docs",
+    "VERSION"
+  ],
+  "keywords": [
+    "opencode",
+    "spec-driven",
+    "autonomous-development",
+    "szw",
+    "schwarzworker"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
