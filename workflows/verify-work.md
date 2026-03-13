@@ -6,7 +6,8 @@ Manual user acceptance testing for phase N: extract testable deliverables from t
 
 ## 1. Resolve phase N and load deliverables
 
-Get N from arguments. Load phase goal, VERIFICATION.md, SUMMARYs. Extract testable deliverables (what the user should be able to do now).
+Get N from arguments. Load phase goal, VERIFICATION.md, SUMMARYs, ROADMAP success criteria, and boundary contracts.
+Extract testable deliverables (what the user should be able to do now), prioritizing items marked as must-haves and boundary-linked flows.
 
 ## 2. Walk through each deliverable
 

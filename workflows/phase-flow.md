@@ -1,5 +1,5 @@
 <purpose>
-Run a full phase in one flow: plan → execute (with retry until automated verification passes) → verify-work. Single entry point for phase N. Uses only SchwarzWorker workflows and agents.
+Run a full phase in one flow: plan → execute (with retry until automated verification passes) → reassess → verify-work. Single entry point for phase N. Uses only SchwarzWorker workflows and agents.
 </purpose>
 
 <required_reading>
@@ -13,6 +13,7 @@ Read all files referenced by the invoking command's execution_context before sta
 - **Phase number N** from command arguments (e.g. szw-phase 1 → N=1).
 - **Max execute retries** (default 3): re-run execute when phase verifier reports gaps.
 - **Skip verify-work** if --no-verify-work: run plan + execute only.
+- **Workflow toggles from config**: workflow.reassessment, workflow.blocking_uat.
 
 Ensure `.planning/` exists, ROADMAP.md exists, and ROADMAP defines phase N. If not, abort with a clear message.
 
@@ -41,22 +42,31 @@ Run the **execute-phase** workflow for phase N (see @workflows/execute-phase.md)
 - If gaps_found and retries exhausted → stop, report gaps, suggest user run /szw-execute-phase N or /szw-verify-work N after fixing.
 - If no VERIFICATION.md yet after one run, continue to step 4 once execution completes.
 
-## 4. Verify Work (Manual UAT)
+## 4. Reassess (Roadmap/Requirements correction)
+
+If workflow.reassessment is enabled:
+
+- Run reassess-phase workflow for phase N.
+- If reassessment verdict is `modified`, update ROADMAP/REQUIREMENTS (and DECISIONS if needed) before continuing.
+- If reassessment indicates downstream plans are invalid, stop and ask user to rerun /szw-plan-phase for affected phases.
+
+## 5. Verify Work (Manual UAT)
 
 Unless --no-verify-work:
 
 - Run the **verify-work** workflow for phase N (see @workflows/verify-work.md).
 - User confirms deliverables; if issues, workflow may produce fix plans for re-execution.
-- Phase is "done" only when verify-work passes or is explicitly skipped.
+- If workflow.blocking_uat is true, phase is "done" only when verify-work passes.
+- If workflow.blocking_uat is false, phase can be marked automation-done while UAT stays pending.
 
 If --no-verify-work: skip; phase is "automation-done" only.
 
-## 5. Report
+## 6. Report
 
 Summarize: phase N planned, executed, (optionally) verified. Next: /szw-phase N+1 or /szw-audit-milestone when all phases are done.
 
 </process>
 
 <dependencies>
-Requires SchwarzWorker workflows (plan-phase, execute-phase, verify-work) and agents (szw-planner, szw-plan-checker, szw-executor, szw-verifier). Planning structure: .planning/ per docs/PLANNING-STRUCTURE.md.
+Requires SchwarzWorker workflows (plan-phase, execute-phase, reassess-phase, verify-work) and agents (szw-planner, szw-plan-checker, szw-executor, szw-verifier). Planning structure: .planning/ per docs/PLANNING-STRUCTURE.md.
 </dependencies>

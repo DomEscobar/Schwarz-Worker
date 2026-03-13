@@ -10,7 +10,8 @@ Read docs/DEFINITION-OF-DONE.md, docs/KPIS-AND-TARGETS.md. Read @references/plan
 
 ## 1. Initialize milestone context
 
-Resolve milestone version from arguments or ROADMAP. List phases in scope. Load REQUIREMENTS.md traceability (REQ-IDs assigned to this milestone).
+Resolve milestone version from arguments or ROADMAP. List phases in scope. Load REQUIREMENTS.md traceability (REQ-IDs assigned to this milestone, class, status, ownership, evidence).
+Load ROADMAP Boundary Map contracts for cross-phase expectations.
 
 ## 2. Read all phase verifications
 
@@ -18,13 +19,14 @@ For each phase in scope, read .planning/phases/{phase}/{phase}-VERIFICATION.md. 
 
 ## 3. Integration check
 
-Spawn szw-integration-checker with: phase list, exports/APIs from SUMMARYs, milestone requirement IDs. Checker reports cross-phase wiring and E2E flow gaps. Collect report.
+Spawn szw-integration-checker with: phase list, exports/APIs from SUMMARYs, milestone requirement IDs, and Boundary Map contracts.
+Checker reports cross-phase wiring and E2E flow gaps, including contract mismatches. Collect report.
 
 ## 4. Requirements coverage (3-source)
 
 - 4a. REQUIREMENTS.md traceability: REQ-ID, description, phase, checkbox.
 - 4b. Each phase VERIFICATION.md: requirements table (requirement, source plan, status, evidence).
-- 4c. Each phase SUMMARY frontmatter: requirements_completed.
+- 4c. Each phase SUMMARY frontmatter: requirements_completed and verification_result.
 For each REQ-ID, determine satisfied / partial / unsatisfied / orphaned per docs. Orphaned = in REQUIREMENTS but in no phase VERIFICATION → unsatisfied.
 
 ## 5. Aggregate and write audit

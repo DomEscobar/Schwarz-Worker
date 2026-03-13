@@ -1,0 +1,10 @@
+{
+  "name": "szw-lab-seed",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Seed app for recurring SchwarzWorker broad tests",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node src/index.js --self-check"
+  }
+}

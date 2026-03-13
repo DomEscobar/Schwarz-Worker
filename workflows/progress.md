@@ -6,7 +6,7 @@ Compute current position and next step from .planning/ROADMAP, STATE, and phase 
 
 ## 1. Load ROADMAP and STATE
 
-Read .planning/ROADMAP.md (milestone, phases). Read .planning/STATE.md if present (blockers, decisions).
+Read .planning/ROADMAP.md (milestone, phases, boundary map). Read .planning/STATE.md if present (blockers, decisions). Read .planning/DECISIONS.md if present.
 
 ## 2. Phase status per phase
 
@@ -16,12 +16,16 @@ For each phase in ROADMAP, check .planning/phases/{phase}/:
 - *-SUMMARY.md → executed
 - VERIFICATION.md with status passed → verified (automated)
 - UAT.md with passed → verified (manual)
+- REASSESSMENT.md with verdict modified → replanning required
 Derive: not_started | discussed | planned | executed | verified.
+
+If REASSESSMENT verdict is modified and affected phases are not replanned, flag status as `replan_required`.
 
 ## 3. Next step
 
 - If there is a phase with status before verified: suggest /szw-discuss-phase N, /szw-plan-phase N, /szw-execute-phase N, or /szw-verify-work N (or /szw-phase N for fused).
 - If all phases verified: suggest /szw-audit-milestone then /szw-complete-milestone.
+- If any phase has reassessment verdict modified with unresolved follow-up: suggest /szw-plan-phase for affected phase(s) before execute.
 - If no .planning/ or ROADMAP: suggest /szw-new-project (or /szw-map-codebase then /szw-new-project for brownfield).
 
 ## 4. Optional KPI summary

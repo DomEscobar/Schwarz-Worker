@@ -14,7 +14,8 @@ Spawn szw-planner with the task description and current codebase context. Produc
 
 ## 3. Execute
 
-Spawn szw-executor with the plan. Execute, atomic commit. Write SUMMARY.md in same quick directory.
+Spawn szw-executor with the plan. Execute, atomic commit.
+Write SUMMARY.md in same quick directory using the rich summary contract fields (provides, key files, diagnostics, blocker_discovered).
 
 ## 4. Report
 

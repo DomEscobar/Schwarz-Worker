@@ -18,7 +18,7 @@ Prompts for global (`~/.config/opencode/`) or local (`./.opencode/`). Use `npx s
 | **Brownfield** | `/szw-map-codebase` then `/szw-new-project`     | Same phase loop         |
 | **Jira/sprint**| New project or milestone with ticket scope      | `/szw-phase N` per phase |
 
-One phase in one go: `/szw-phase 1` runs plan → execute → verify for phase 1.
+One phase in one go: `/szw-phase 1` runs plan → execute → reassess → verify for phase 1.
 
 ---
 
@@ -74,8 +74,9 @@ No need for the full phase flow.
 | `/szw-discuss-phase N` | Capture implementation decisions for phase N. |
 | `/szw-plan-phase N` | Research + plan + plan-check for phase N. |
 | `/szw-execute-phase N` | Run plans; internal verification; atomic commits. |
+| `/szw-reassess-phase N` | Reassess downstream roadmap/requirements after execution. |
 | `/szw-verify-work N` | Manual UAT for phase N. |
-| `/szw-phase N [--no-verify-work]` | Fused: plan → execute → verify for phase N. |
+| `/szw-phase N [--no-verify-work]` | Fused: plan → execute → reassess → verify for phase N. |
 | `/szw-audit-milestone [version]` | Audit milestone against DOD and KPIs. |
 | `/szw-complete-milestone` | Archive milestone, tag release. |
 | `/szw-new-milestone [name]` | Start next milestone. |
@@ -88,9 +89,26 @@ No need for the full phase flow.
 | `/szw-help` | List szw- commands and doc links. |
 | `/szw-quick` | Ad-hoc task (plan + execute, no verify-work). |
 | `/szw-add-phase`, `/szw-insert-phase N`, `/szw-remove-phase N` | Phase management. |
+| `/szw-record-decision` | Append a decision to `.planning/DECISIONS.md`. |
 | `/szw-pause-work`, `/szw-resume-work` | Handoff. |
 | `/szw-debug [desc]` | Systematic debugging. |
 | `/szw-settings` | Config: profiles, workflow toggles. |
+
+---
+
+## Recurring Resettable Test Lab
+
+Use the built-in harness under `testing/`:
+
+```powershell
+.\testing\new-lab.ps1 -Force
+.\testing\start-cycle.ps1
+# run your /szw broad tests in .test-lab/schwarzworker-lab
+.\testing\archive-lab-run.ps1
+.\testing\reset-lab.ps1
+```
+
+Checklist: `testing/broad-test-checklist.md`
 
 ---
 

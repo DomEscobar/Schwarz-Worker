@@ -2,7 +2,9 @@
 
 **Current milestone:** {{milestone}}
 **Current phase:** {{phase}}
+**Current plan:** {{plan}}
 **Last step:** {{last_step}}
+**Next action:** {{next_action}}
 
 ## Decisions
 - ...
@@ -12,6 +14,11 @@
 
 ## Position / notes
 - ...
+
+## Reconciliation flags
+- roadmap_vs_summaries: clean | inconsistent
+- state_pointer_valid: yes | no
+- unresolved_inconsistency: none | {{description}}
 
 ---
 

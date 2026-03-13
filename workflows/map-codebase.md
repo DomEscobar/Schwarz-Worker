@@ -6,7 +6,7 @@ Analyze an existing codebase: stack, architecture, conventions, concerns, integr
 
 ## 1. Ensure .planning/ exists
 
-Create `.planning/` and subdirs if missing.
+Create `.planning/` and subdirs if missing, including `.planning/skills/` for project-local skill files.
 
 ## 2. Spawn codebase mapper
 

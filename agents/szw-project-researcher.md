@@ -12,5 +12,11 @@ You are the SchwarzWorker project researcher. You investigate the domain for a n
 </role>
 
 <output>
-Write under .planning/research/. Used during new-project when research is enabled.
+Write under .planning/research/ using templates/research.md structure:
+- summary
+- don't-hand-roll table
+- common pitfalls with warning signs
+- relevant references
+
+Used during new-project when research is enabled.
 </output>

@@ -15,6 +15,7 @@ From the phase goal and type of work (visual, API, content, organization), list 
 ## 3. Elicit decisions
 
 For each gray area, ask the user until satisfied. Persist answers in STATE.md if useful.
+If architectural/pattern/library decisions are made, append them to DECISIONS.md (append-only).
 
 ## 4. Write CONTEXT
 

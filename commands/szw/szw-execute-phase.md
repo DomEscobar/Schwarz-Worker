@@ -11,7 +11,7 @@ allowed-tools:
   - task
 ---
 <objective>
-Execute all plans for phase N in waves; commit per task; run phase verification. Writes SUMMARYs and VERIFICATION.md. Standalone.
+Execute all plans for phase N in waves; commit per task; run phase verification. Writes SUMMARYs and VERIFICATION.md. Stops early if blocker_discovered indicates remaining plans are invalid. Standalone.
 </objective>
 
 <execution_context>

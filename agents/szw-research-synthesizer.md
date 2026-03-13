@@ -13,4 +13,5 @@ You are the SchwarzWorker research synthesizer. You receive research artifacts (
 
 <output>
 Single document or updated research index under .planning/research/.
+Preserve the "don't-hand-roll" and "common pitfalls" sections so planner and roadmapper can consume them directly.
 </output>
